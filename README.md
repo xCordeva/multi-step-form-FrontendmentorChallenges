@@ -31,17 +31,17 @@ Users should be able to:
 
 ## Demo
 
-- Live Site URL: [Add live site URL here](https://xcordeva.github.io/multi-step-form-FrontendmentorChallenges)
+- Live Site URL: [Click Here!](https://xcordeva.github.io/multi-step-form-FrontendmentorChallenges)
 
 
 ## Screenshot 
 
-### Desktop
-![](./desktop-screenshot.png)
+### Desktop View
+![](desktop-screenshot.PNG)
 
-### Mobile
+### Mobile View
 
-![](./mobile-screenshot.png)
+![](mobile-screenshot.PNG)
 
 
 ## Built with
