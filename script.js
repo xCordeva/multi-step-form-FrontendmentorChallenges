@@ -20,6 +20,14 @@ if (window.innerWidth >= 700) {
   numberSteps = Array.from(document.querySelectorAll('.step'))
 }
 
+
+/* a functino to check if the email is valid  */
+function isEmailValid(email){
+  // Regular expression for matching an email address
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 /* declaring the current step at 0 */
 let currentStep = 0;
 /* next step button */
@@ -33,10 +41,22 @@ nextButtons.forEach((button) => {
             let hasEmptyInput = false; // a flag to check if any input is empty
   
             inputs.forEach((input) => {
-              /* checks if theres no input or if phone number input is not a number */
-              if (!input.value || (input.getAttribute('data-type') === 'phone' && isNaN(input.value))) {
+              /* checks if theres no input or if phone number input is not a number or if email input is not an email */
+              if (!input.value || (input.getAttribute('data-type') === 'phone' && isNaN(input.value)) ||(input.getAttribute('data-type') === 'email' && !isEmailValid(input.value)) ) {
+            
+                /* if the input is not an email for the email input it removes the empty message and displays the enter aan email message */
+                if(input.getAttribute('data-type') === 'email' && !isEmailValid(input.value) && input.value){
+
+                  document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'none';
+                  document.querySelector(`.js-form-input-${input.getAttribute('data-type')}-required`).style.border = '1px solid  hsl(354, 84%, 57%)';
+                  document.querySelector(`.js-input-${input.getAttribute('data-type')}-required`).style.display = 'block';
+
+                  hasEmptyInput = true;
+                }
+                
+
                 /* if the input is not a number for the phone num input it removes the empty message and displays the enter a phone num message */
-                if(input.getAttribute('data-type') === 'phone' && isNaN(input.value)){
+                else if(input.getAttribute('data-type') === 'phone' && isNaN(input.value)){
 
                   document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'none';
                   document.querySelector(`.js-form-input-${input.getAttribute('data-type')}-required`).style.border = '1px solid  hsl(354, 84%, 57%)';
@@ -44,26 +64,27 @@ nextButtons.forEach((button) => {
 
                   hasEmptyInput = true;
 
-                }else{
-                /* remove the invaled number message first */
-                if(input.getAttribute('data-type') === 'phone'){
-                  document.querySelector(`.js-input-${input.getAttribute('data-type')}-required`).style.display = 'none';
                 }
-                /* display the empty field message */
-                  document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'block';
-                  document.querySelector(`.js-form-input-${input.getAttribute('data-type')}`).style.border = '1px solid  hsl(354, 84%, 57%)';
+                else{
+                /* remove the invalid number & email messages first */
+                  if(input.getAttribute('data-type') === 'phone' || input.getAttribute('data-type') === 'email'){
+                    document.querySelector(`.js-input-${input.getAttribute('data-type')}-required`).style.display = 'none';
+                  }
+                  /* display the empty field message */
+                    document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'block';
+                    document.querySelector(`.js-form-input-${input.getAttribute('data-type')}`).style.border = '1px solid  hsl(354, 84%, 57%)';
 
-                  hasEmptyInput = true; // Set the flag to true if any input is empty
+                    hasEmptyInput = true; // Set the flag to true if any input is empty
                 }
                 
               }
               else{
                 
-                  document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'none';
-                  document.querySelector(`.js-form-input-${input.getAttribute('data-type')}`).style.border = '1px solid  hsl(229, 24%, 87%)';
+                document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'none';
+                document.querySelector(`.js-form-input-${input.getAttribute('data-type')}`).style.border = '1px solid  hsl(229, 24%, 87%)';
 
-                /* removes the alert of invalid phone num */
-                if(input.getAttribute('data-type') === 'phone'){
+                /* removes the alert of invalid phone num & email */
+                if(input.getAttribute('data-type') === 'phone' || input.getAttribute('data-type') === 'email'){
                   document.querySelector(`.js-input-${input.getAttribute('data-type')}-required`).style.display = 'none';
                 }
               }
