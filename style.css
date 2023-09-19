@@ -1,0 +1,564 @@
+@font-face{
+    font-family: 'Ubuntu-regular';
+    src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Ubuntu-medium';
+    src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+}
+@font-face{
+    font-family: 'Ubuntu-bold';
+    src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+}
+  
+body{
+    font-family: 'Ubuntu-regular', sans-serif;
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.container{
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Sidebar styling*/
+.sidebar{
+    background-image: url('./assets/images/bg-sidebar-desktop.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 100px;
+    border-radius: 20px;
+}
+.steps{
+    padding: 10px 30px 0 10px;
+    margin: 10px 80px 0 20px;
+    color: white;
+}
+.steps-mobile{
+    display: none;
+}
+.step{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.step h4{
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    padding: 10px;
+    width: 10px;
+    height: 10px; 
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.step .step-words p{
+    margin: 5px;
+    white-space: nowrap;
+    font-family: 'Ubuntu-medium', sans-serif;
+}
+.step .step-words .step-num{
+    color: hsl(231, 11%, 63%);
+    font-family: 'Ubuntu-regular', sans-serif;
+}
+.current-step{
+    background-color: hsl(206, 94%, 87%);
+    color: hsl(243, 100%, 62%);
+    border: 1px solid hsl(206, 94%, 87%);
+}
+/* Sidebar styling*/
+
+/* Main info-side styling*/
+.info-bar{
+    margin: 10px 80px 0 0;
+    width: 500px;
+    height: 700px;
+    position: relative;
+}
+.step-2, .step-3, .step-4, .step-5{
+    font-family: 'Ubuntu-bold', sans-serif;
+    display: none;
+}
+.info-title, form label{
+    color: hsl(213, 96%, 18%);
+}
+.info-p{
+    color: hsl(231, 11%, 63%);
+}
+.step-1{
+    display: block;
+}
+form input{
+    color: hsl(213, 96%, 18%);
+    display: block;
+    padding: 15px ;
+    margin: 10px 0 50px 0;
+    border-radius: 5px;
+    border: 1px solid  hsl(229, 24%, 87%);
+    width: 95%;
+    outline: none;
+    font-weight: bolder;
+}
+form input:focus{
+    border: 1px solid  hsl(213, 96%, 18%);
+}
+form .field-req{
+    display: none;
+    float: right;
+    margin: 0;
+    color: hsl(354, 84%, 57%);
+}
+.step-1 button,.step-2 button,.step-3 button{
+    padding: 15px 20px ;
+    border-radius: 10px;
+    border: none;
+    width: 120px;
+    color: white;
+    background-color: hsl(213, 96%, 18%);
+    cursor: pointer;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.step-1 button:hover,.step-2 button:hover,.step-3 button:hover{
+    background-color: hsl(213, 96%, 25%);
+}
+.plans{
+    display: flex;
+    justify-content: space-between;
+    margin: 60px 0;
+}
+.plan{
+    border: 1px solid hsl(229, 24%, 87%);
+    width: 125px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.year-plan{
+    display: none;
+}
+.plan .year-plan-months-free{
+    visibility: hidden;
+    color: hsl(213, 96%, 25%);
+    white-space: nowrap;
+}
+.plan:hover{
+    border: 1px solid hsl(243, 100%, 62%);
+}
+.plan-checked{
+    border: 1px solid hsl(243, 100%, 62%);
+    background-color: hsl(217, 100%, 97%);
+}
+.info-bar .back-button{
+    padding: 15px 20px ;
+    font-weight: bolder;
+    color: hsl(231, 11%, 63%);
+    text-decoration: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.info-bar .back-button:hover{
+    color: hsl(213, 96%, 18%);
+}
+.plan h4{
+    margin:50px 0 0 0;
+    color: hsl(213, 96%, 18%);
+}
+.plan p{
+    margin:5px 0 0 0;
+    color: hsl(231, 11%, 63%);
+}
+.plan-checked{
+    border: 1px solid hsl(243, 100%, 62%);
+    background-color: hsl(217, 100%, 97%);
+}
+
+/* Switch of step2*/
+.switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(217, 100%, 97%);
+    padding: 10px 0;
+    border-radius: 10px;
+}
+.label-left, .label-right{
+    margin: 10px;
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+}
+
+/* Style the switch */
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+.switch input {
+    display: none;
+}
+
+/* Style the slider (the visible part of the switch) */
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(213, 96%, 18%);
+    border-radius: 20px;
+}
+
+/* Style the slider's appearance when it's in the "on" state */
+.switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+/* Move the slider's handle to the "on" state */
+.switch input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Step 3 */
+.add-ons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-on{
+    width: 100%;
+    border: 2px solid hsl(229, 24%, 87%);
+    margin: 20px 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    cursor: pointer;
+}
+.add-on input{
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 20px;
+}
+.add-on .content{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 0 20px 0 0;
+}
+.add-on .content h4{
+    margin-bottom: 0;
+    color:hsl(213, 96%, 18%) ;
+}
+.add-on .content p{
+    margin-top: 10px;
+    white-space: nowrap;
+    color: hsl(231, 11%, 63%);
+}
+.add-on .add-on-price{
+    color: hsl(243, 100%, 62%);
+    margin: 0 50px 0 0 ;
+    padding: 0;
+}
+/* Step 3 end */
+
+/* Step 4 start */
+.finish{
+    display: flex;
+    flex-direction: column;
+}
+.finishings{
+    background-color: hsl(231, 100%, 99%);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.finishing, .service{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.finishing{
+    margin: 10px 0;
+}
+.line{
+    display: flex;
+    justify-content: center;
+    height: 1px;
+    width: 90%;
+    background-color: hsl(229, 24%, 87%);
+    margin: 10px auto;
+}
+.finishing a{
+    color: hsl(231, 11%, 63%);
+    margin-bottom: 10px;
+}
+.finishing h4, .finishing  p{
+    color: hsl(213, 96%, 18%);
+    margin: 10px 0;
+    font-weight: bolder;
+}
+.service p:first-child, .total p:first-child{
+    color: hsl(231, 11%, 63%);
+}
+.service p:last-child{
+    color: hsl(213, 96%, 18%); 
+}
+.total{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.total p:last-child{
+    color: hsl(213, 96%, 18%); 
+    font-weight: bolder;
+}
+.confrim-button{
+    background-color: hsl(243, 100%, 62%);
+    padding: 15px 20px ;
+    border-radius: 10px;
+    border: none;
+    width: 120px;
+    color: white;
+    cursor: pointer;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.confrim-button:hover{
+    background-color: hsl(243, 100%, 70%);
+}
+
+/* Step 5 */
+.step-5{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+}
+.thank-you h1{
+    color: hsl(213, 96%, 18%);
+    font-weight: bolder;
+    margin: 30px 0 10px 0 ;
+}
+.thank-you p{
+    color: hsl(231, 11%, 63%);
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+
+
+@media (max-width:1050px){
+    .container{
+        margin: 10px;
+        padding: 10px;
+    }
+    .sidebar{
+        margin-right: 50px;
+    }
+    .steps{
+        margin: 10px 50px 0 20px;
+    }
+    .info-bar{
+        margin: 10px 30px 20px 0;
+        height: 600px;
+    }
+    .plan{
+        width: 100px;
+    }
+}
+
+@media (max-width:875px){
+    .sidebar{
+        margin-right: 20px;
+    }
+    .steps{
+        margin: 10px 10px 0 20px;
+    }
+    .info-bar{
+        margin: 10px 20px 20px 0;
+        width: 400px;
+    }
+    form input{
+        width: 90%;
+    }
+    .plan{
+        padding: 15px;
+    }
+    .plan .year-plan-months-free{
+        white-space: wrap;
+    }
+    .add-on{
+        width: 95%;
+    }
+    .add-on input{
+        width: 15px;
+        height: 15px;
+    }
+    .add-on .content{
+        width: 40%;
+        margin: 0 80px 0 20px;
+    }
+    .add-on .content h4{
+        white-space: nowrap;
+    }
+}
+
+@media (max-width:700px){
+    body {
+        background-image: url('./assets/images/bg-sidebar-mobile.svg');
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        justify-content: normal;
+        position: relative;
+      }
+    .steps-mobile{
+        display: flex;
+        justify-content: space-around;
+        color: white;
+    }
+    .container{
+        padding: 0px;
+        width: 90%;
+        flex-direction: column;
+        border-radius: 20px;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+    .steps{
+        display: none;
+    }
+    .info-bar{
+        width: 85%;    
+        position: unset;  
+        height: auto;
+    }
+    form input{
+        width: 90%;
+        margin:10px 0 20px 0;
+    }
+    .buttons-container{
+        display: flex;
+        align-items: center;
+        padding: 15px 20px ;
+        width: 100%;
+        height: 40px;
+        background-color: white;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        
+    }
+    .step-1 button,.step-2 button,.step-3 button{
+        bottom: auto;
+        margin-right: 60px;
+    }
+    .info-bar .back-button{
+        bottom: auto;
+        left: auto;
+    }
+    .confrim-button{
+        bottom: auto;
+        margin-right: 60px;
+    }
+    .plans{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 30px 0;
+    }
+    .plan{
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: start;
+        width: 90%;
+        height: 65px;
+        padding: 20px;
+        margin:10px 0;
+    }
+    .plan-contianer{
+        display: flex;
+        margin: 0 20px;
+        flex-direction: column;
+    }
+    .plan h4{
+        margin:0px 0 0 0;
+    }
+    .add-on{
+        margin: 10px 0;
+        padding: 0px 0;
+        justify-content: start;
+    }
+    .add-on .content{
+        width: 40%;
+        font-size: 12px;
+        margin: 0 70px 0 10px;
+    }
+    .add-on input{
+        width: 15px;
+        height: 15px;
+        margin: 0 0 0 10px;
+    }
+    .add-on .add-on-price{
+        font-size: 13px;
+        margin: 0 20px 0 0 ;
+    }
+    .step-5{
+        padding: 40px 0;
+        margin: 20px 0;
+    }
+    .thank-you img{
+        width: 20%;
+    }
+
+    .credit{
+        display: none;
+    }
+}
+
+  
+
+.credit{
+    font-size: 15px;
+}
+.credit a{
+    color: hsl(228, 45%, 44%);
+    text-decoration: none;
+    font-weight: bolder;
+}
+.credit a:hover{
+    color: blue;
+}
