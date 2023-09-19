@@ -45,6 +45,10 @@ nextButtons.forEach((button) => {
                   hasEmptyInput = true;
 
                 }else{
+                /* remove the invaled number message first */
+                  document.querySelector(`.js-input-${input.getAttribute('data-type')}-required`).style.display = 'none';
+                  
+                /* display the empty field message */
                   document.querySelector(`.js-input-${input.getAttribute('data-type')}`).style.display = 'block';
                   document.querySelector(`.js-form-input-${input.getAttribute('data-type')}`).style.border = '1px solid  hsl(354, 84%, 57%)';
 
